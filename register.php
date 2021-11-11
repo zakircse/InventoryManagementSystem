@@ -1,5 +1,25 @@
 <?php
-
+    include 'auth/connection.php';
+    $conn = connect();
+    $m = '';
+    if(isset($_POST['submit'])){
+        $name = $_POST['name'];
+        $userName = $_POST['uname'];
+        $email= $_POST['email']?$_POST['email']:'';
+        $pass = $_POST['pass'];
+        $r_pass = $_POST['r_pass'];
+        if($pass === $r_pass){
+            $sq= "INSERT INTO users_info(name, user_name, email, password) VALUES('$name', '$userName', '$email', '$pass')";
+            if($conn->query($sq) === true){
+                header('Location: login.php');
+            }
+            else{
+                $m = "Connection Not Established!";
+            }
+        }else{
+            $m = "Password Not Match!";
+        }
+    }
 ?>
 <html>
     <head>
@@ -15,6 +35,7 @@
     <body>
         <form method="post" action="register.php" enctype="multipart/form-data">
             <div class="container">
+                <span><?php if($m!='') echo $m; ?></span>
                 <h1>Registration Form</h1>
                 <p>Please fill up the form</p>
                 <hr>
@@ -36,13 +57,13 @@
                 </div>
                 <div>
                     <label>Your Password Again<span style="color: red">*</span></label>
-                    <input name="rpass" id="pass" type="password" placeholder="Confirm Your Password" required>
+                    <input name="r_pass" id="pass" type="password" placeholder="Confirm Your Password" required>
                 </div>
                 <div style="text-align: center;">
                     <p><span>***</span>By creating your account you agree to our Terms & Privacy Policy</p>
                 </div>
                 <div style="text-align: center; padding: 20px;">
-                    <input type="submit" value="Submit" class="btn btn-primary">
+                    <input name="submit" type="submit" value="Submit" class="btn btn-primary">
                 </div>
                 <div style="text-align: center;">
                     <p>Already have an account? <a href="login.php" style="text-decoration: none">Sign in</a></p>

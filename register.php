@@ -26,15 +26,16 @@
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Registration Form</title>
-        <link type="text/css" rel="stylesheet" href="css/style.css">
-        <link type="text/css" rel="stylesheet" href="css/register.css">
+        <title>Registration Form - IMS</title>
         <!-- Bootstrap CSS-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!--Custom CSS-->
+        <link type="text/css" rel="stylesheet" href="css/style.css">
+        <link type="text/css" rel="stylesheet" href="css/register.css">
     </head>
     <body>
         <form method="post" action="register.php" enctype="multipart/form-data">
-            <div class="container">
+            <div class="container my-5">
                 <span><?php if($m!='') echo $m; ?></span>
                 <h1>Registration Form</h1>
                 <p>Please fill up the form</p>
@@ -63,10 +64,10 @@
                     <p><span>***</span>By creating your account you agree to our Terms & Privacy Policy</p>
                 </div>
                 <div style="text-align: center; padding: 20px;">
-                    <input name="submit" type="submit" value="Submit" class="btn btn-primary">
+                    <input name="submit" type="submit" value="Submit" style="padding:10px 20px;background-color: #ffce00; font-size: 20px;font-weight: 600;border: none;">
                 </div>
                 <div style="text-align: center;">
-                    <p>Already have an account? <a href="login.php" style="text-decoration: none">Sign in</a></p>
+                    <p>Already have an account? <a href="login.php" style="text-decoration: none; color: #ffce00;">Sign In</a></p>
                 </div>
             </div>
         </form>

@@ -11,10 +11,10 @@
         <!-- Bootstrap CSS-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     </head>
-    <body>
+    <body style="background-color: black;">
         <div class="container py-5 page">
             <div>
-                <h1 class="head">Welcome to Inventory Management System</h1>
+                <h1 class="head">Welcome to <span style="color: #ffce00;">Inventory Management System</span></h1>
             </div>
             <div class="d-grid gap-2 col-2 mx-auto my-5">
                 <a class="btn btn-danger btn-lg" href="login.php" role="button">Login</a>

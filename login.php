@@ -1,4 +1,7 @@
 <?php
+    session_start();
+    $_SESSION['user'] = '';
+    $_SESSION['userid'] = '';
     include 'auth/connection.php';
     $conn = connect();
     $m = '';
@@ -9,6 +12,9 @@
         $sql = "SELECT * FROM users_info WHERE user_name = '$userName' AND password = '$pass'";
         $result = $conn->query($sql);
         if(mysqli_num_rows($result) == 1){
+            $user = mysqli_fetch_assoc($result);
+            $_SESSION['user'] = $user['name'];
+            $_SESSION['userid'] = $user['id'];
             header("Location: dashboard.php");
         }else{
             $m = "Credentials Mismatch!";
@@ -19,6 +25,7 @@
     <head>
         <link type="text/css" rel="stylesheet" href="css/style.css">
         <link type="text/css" rel="stylesheet" href="css/login.css">
+        <title>Log In - IMS</title>
     </head>
     <body>
         <div class="logo">
@@ -58,8 +65,8 @@
 <script>
     function myFunction(){
         var x = document.getElementById("my-password");
-        var y = document.getElementById("hide1");
-        var z = document.getElementById("my-password");
+        var y = document.getElementById("hide-1");
+        var z = document.getElementById("hide-2");
 
         if(x.type === "password"){
             x.type = "test";

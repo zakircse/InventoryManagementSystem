@@ -1,7 +1,12 @@
 <?php
-    session_start();
+    include('auth/connection.php');
+    $conn = connect();
     $user= $_SESSION['user'];
     $userid= $_SESSION['userid'];
+
+    $sql = "UPDATE users_info SET last_login_time = current_timestamp() WHERE id='$userid'";
+    $conn->query($sql);
+    $conn->close();
 ?>
 <html>
     <head>
@@ -22,7 +27,7 @@
                 <ul class="nav navbar-nav" style="color: white;">
                     <li><a href="dashboard.php">MyInventory</a></li>
                     <li><a href="products.php">Products</a></li>
-                    <li><a href="#">Users</a></li>
+                    <li><a href="users.php">Users</a></li>
                     <li style="float: right;"><a href="logout.php" style="padding: 0px 20px 0px 0px;"><button class="btn btn-danger navbar-btn pull-right">Logout</button></a></li>
                     <li class="pull-right"><a href="#">Logged in as: <b class="user"><?php echo $user;?></b></a></li>
                 </ul>

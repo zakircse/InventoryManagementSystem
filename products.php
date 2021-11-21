@@ -1,7 +1,6 @@
 <?php
     session_start();
     include ('navigation.php');
-    include('auth/connection.php');
 
     $m='';
     $conn=connect();
@@ -180,8 +179,9 @@
             <p>Some texts about this inventory management software.</p>
         </div>
         <div class="card" style="background-color: #282828;">
-            <h2>Owners Info</h2>
-            <p>Some text..</p>
+            <h2>Digitech Computer</h2>
+            <p>Owner: Md. Zakir Hossain</p>
+            <p>Mobile: 01778372563</p>
         </div>
     </div>
 </div>

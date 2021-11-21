@@ -1,5 +1,4 @@
 <?php
-    include 'auth/connection.php';
     $conn = connect();
     $m = '';
     if(isset($_POST['submit'])){

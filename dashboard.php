@@ -1,7 +1,6 @@
 <?php
     session_start();
     include 'navigation.php';
-    include 'auth/connection.php';
 
     $date = date('Y-m-d', strtotime('-10 days'));
     $conn = connect();
@@ -98,8 +97,9 @@
                 <p><h4></h4> is working here since <h4></h4></p>
             </div>
             <div class="card text-center" style="background-color: #282828;">
-                <h2>Owners Info</h2>
-                <p>Some text..</p>
+                <h2>Digitech Computer</h2>
+                <p>Owner: Md. Zakir Hossain</p>
+                <p>Mobile: 01778372563</p>
             </div>
         </div>
     </div>

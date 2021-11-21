@@ -1,7 +1,6 @@
 <?php
     session_start();
     include ('navigation.php');
-    include('auth/connection.php');
 
     $conn = connect();
 
